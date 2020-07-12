@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jul 12, 2020 at 12:16 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `dnd_task`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `list1`
+--
+
+CREATE TABLE `list1` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `datetime` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `list1`
+--
+
+INSERT INTO `list1` (`ID`, `name`, `datetime`) VALUES
+(4, 'Item 2', '2020-07-12 14:47:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `list2`
+--
+
+CREATE TABLE `list2` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `datetime` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `list1`
+--
+ALTER TABLE `list1`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `list2`
+--
+ALTER TABLE `list2`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `list1`
+--
+ALTER TABLE `list1`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `list2`
+--
+ALTER TABLE `list2`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
