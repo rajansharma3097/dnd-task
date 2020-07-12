@@ -1,0 +1,62 @@
+<!-- START card-->
+<div class="card card-default">
+  <div class="card-header">Add New Item</div>
+  <div class="card-body">
+      <form class="form-inline" novalidate
+          (ngSubmit)="save()"
+          [formGroup]="ItemForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="nameId">Item Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="nameId"
+                 type="text"
+                 placeholder="Item Name (required)"
+                 formControlName="name"
+                 [ngClass]="{'is-invalid': (ItemForm.get('name').touched ||
+                 ItemForm.get('name').dirty) &&
+                                            !ItemForm.get('name').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="ItemForm.get('name').errors?.required">
+              Please enter any name.
+            </span>
+          </span>
+        </div>
+        <button class="btn btn-primary mb-2" type="submit">Submit</button>
+      </div>
+    </form>
+      
+
+
+  </div>
+</div>
+<!-- END card-->
+
+<div class="row">
+  <div class="col-lg-4">
+      <div class="card">
+          <div class="card-header">List 1</div>
+          <div class="card-body">
+              <div *ngFor="let item of listOneItems" class="card card-default text-color" dnd-draggable [dragData]="item" [dropZones]="['demo1']">
+                  <div class="card-body">
+                      <div>{{item.name}}</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-lg-4">
+      <div dnd-droppable (onDropSuccess)="addToListTwo($event)" [dropZones]="['demo1']" class="card">
+          <div class="card-header">List 2</div>
+          <div class="card-body">
+              <div *ngFor="let item of listTwoItems" class="card card-default">
+                  <div class="card-body">
+                      {{item.name}}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
